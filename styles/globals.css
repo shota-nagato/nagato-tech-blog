@@ -5,3 +5,9 @@
   --color-primary-foreground: #f8fafb;
   --color-primary-black: #333;
 }
+
+@layer utilities {
+  .body {
+    @apply text-base;
+  }
+}
