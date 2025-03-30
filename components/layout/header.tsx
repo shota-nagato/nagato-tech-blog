@@ -8,12 +8,22 @@ export async function Header() {
   })
 
   return (
-    <header className="relative bg-primary mb-30">
-      <div className="flex items-center h-15 justify-between px-4 lg:px-25 max-w-screen-xl mx-auto">
+    <header className="bg-primary relative mb-30">
+      <div
+        className={`
+          mx-auto flex h-15 max-w-screen-xl items-center justify-between px-4
+          lg:px-25
+        `}
+      >
         <Link href="/">
           <Image src="/image/logo.png" alt="logo" width={209} height={24} />
         </Link>
-        <ul className="lg:flex gap-10 hidden">
+        <ul
+          className={`
+            hidden gap-10
+            lg:flex
+          `}
+        >
           {categories.map((category) => (
             <li key={category.id} className="body text-white">
               <Link href="#">{category.name}</Link>

@@ -16,7 +16,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className="bg-primary-foreground antialiased flex flex-col min-h-screen">
+      <body
+        className={`
+          bg-primary-foreground flex min-h-screen flex-col antialiased
+        `}
+      >
         <Image
           alt="ファーストビュー画像"
           className="absolute h-[300px] w-full object-cover"
@@ -25,10 +29,34 @@ export default function RootLayout({
           width={1280}
         />
         <Header />
-        <main className="flex grow px-4 lg:px-25 max-w-screen-xl mx-auto w-full">
-          <div className="relative lg:grid lg:grid-cols-6 lg:gap-8 w-full">
-            <div className="border lg:col-span-4">{children}</div>
-            <div className="border lg:col-span-2 lg:mt-0 mt-30">sidebar</div>
+        <main
+          className={`
+            mx-auto flex w-full max-w-screen-xl grow px-4
+            lg:px-25
+          `}
+        >
+          <div
+            className={`
+              relative w-full
+              lg:grid lg:grid-cols-6 lg:gap-8
+            `}
+          >
+            <div
+              className={`
+                border
+                lg:col-span-4
+              `}
+            >
+              {children}
+            </div>
+            <div
+              className={`
+                mt-30 border
+                lg:col-span-2 lg:mt-0
+              `}
+            >
+              sidebar
+            </div>
           </div>
         </main>
         <Footer />
