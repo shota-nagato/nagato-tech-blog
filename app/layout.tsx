@@ -3,6 +3,9 @@ import '@/styles/globals.css'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import Image from 'next/image'
+import { Profile } from '@/components/layout/sidebar/profile'
+import { Categories } from '@/components/layout/sidebar/categories'
+import { Tags } from '@/components/layout/sidebar/tags'
 
 export const metadata: Metadata = {
   title: 'NagatoTech blog',
@@ -51,11 +54,15 @@ export default function RootLayout({
             </div>
             <div
               className={`
-                mt-30 border
+                mt-30
                 lg:col-span-2 lg:mt-0
               `}
             >
-              sidebar
+              <div className="flex flex-col gap-8">
+                <Profile />
+                <Categories />
+                <Tags />
+              </div>
             </div>
           </div>
         </main>
