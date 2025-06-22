@@ -4,6 +4,30 @@ import { getArticle, getArticles } from '@/libs/microcms'
 import { formatDate, renderToc } from '@/libs/utils'
 import Image from 'next/image'
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
+
+export async function generateMetadata(props: {
+  params: Promise<{ articleId: string }>
+}) {
+  const { articleId } = await props.params
+  const article = await getArticle(articleId)
+
+  if (!article) {
+    notFound()
+  }
+
+  return {
+    title: `${article.title}`,
+    description: article.content.slice(0, 150),
+    openGraph: {
+      images: [
+        {
+          url: article.eyecatch?.url,
+        },
+      ],
+    },
+  }
+}
 
 export default async function Page(props: {
   params: Promise<{ articleId: string }>
