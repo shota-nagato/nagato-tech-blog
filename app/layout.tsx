@@ -6,9 +6,19 @@ import Image from 'next/image'
 import { Profile } from '@/components/layout/sidebar/profile'
 import { Categories } from '@/components/layout/sidebar/categories'
 import { Tags } from '@/components/layout/sidebar/tags'
+import { Noto_Sans_JP } from 'next/font/google'
+
+const noto = Noto_Sans_JP({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '500', '700'],
+})
 
 export const metadata: Metadata = {
-  title: 'NagatoTech blog',
+  title: {
+    default: 'NagatoTech blog',
+    template: 'NagatoTech blog | %s',
+  },
   description: 'webエンジニアの技術ブログです',
 }
 
@@ -22,6 +32,7 @@ export default function RootLayout({
       <body
         className={`
           bg-primary-foreground flex min-h-screen flex-col antialiased
+          ${noto.className}
         `}
       >
         <Image
@@ -44,14 +55,7 @@ export default function RootLayout({
               lg:grid lg:grid-cols-6 lg:gap-8
             `}
           >
-            <div
-              className={`
-                border
-                lg:col-span-4
-              `}
-            >
-              {children}
-            </div>
+            <div className={`lg:col-span-4`}>{children}</div>
             <div
               className={`
                 mt-30

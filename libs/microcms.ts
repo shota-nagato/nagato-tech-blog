@@ -46,6 +46,14 @@ export async function getCategories(queries?: MicroCMSQueries) {
   return categories
 }
 
+export async function getCategory(categoryId: string) {
+  const category = await microCMSClient.getListDetail<Category>({
+    endpoint: 'categories',
+    contentId: categoryId,
+  })
+  return category
+}
+
 export async function getTags(queries?: MicroCMSQueries) {
   const tags = await microCMSClient.getList<Tag>({
     endpoint: 'tags',

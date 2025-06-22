@@ -38,7 +38,7 @@ export async function Categories() {
               }
             `}
           >
-            <Link href={`/categories/${category.id}`} className="text-body">
+            <Link href={`/category/${category.id}`} className="text-body">
               {category.name}
             </Link>
             <span className="text-text-secondary-black">
