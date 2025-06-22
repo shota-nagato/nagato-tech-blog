@@ -8,10 +8,15 @@
   --color-text-secondary-black: #575757;
   --color-text-inactive: #b2b7b7;
 
+  --color-object-inactive: #e8ebeb;
+
   --radius: 3px;
 }
 
 @layer utilities {
+  .h2 {
+    @apply font-medium text-2xl;
+  }
   .h3 {
     @apply font-medium text-xl;
   }

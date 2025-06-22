@@ -27,7 +27,7 @@ export async function Header() {
           >
             {categories.map((category) => (
               <li key={category.id} className="body text-white">
-                <Link href="#">{category.name}</Link>
+                <Link href={`/category/${category.id}`}>{category.name}</Link>
               </li>
             ))}
           </ul>
