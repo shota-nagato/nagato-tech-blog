@@ -62,6 +62,14 @@ export async function getTags(queries?: MicroCMSQueries) {
   return tags
 }
 
+export async function getTag(tagId: string) {
+  const tag = await microCMSClient.getListDetail<Tag>({
+    endpoint: 'tags',
+    contentId: tagId,
+  })
+  return tag
+}
+
 export async function getArticles(queries?: MicroCMSQueries) {
   const articles = await microCMSClient.getList<Article>({
     endpoint: 'articles',

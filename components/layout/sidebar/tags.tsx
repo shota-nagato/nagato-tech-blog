@@ -35,7 +35,7 @@ export async function Tags() {
             <div className="flex items-center gap-1">
               <Image alt={tag.name} height={12} src="/svg/tag.svg" width={12} />
               <Link
-                href={`/tags/${tag.id}`}
+                href={`/tag/${tag.id}`}
                 className="text-body text-text-secondary-black"
               >
                 {tag.name}
