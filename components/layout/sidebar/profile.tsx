@@ -31,7 +31,7 @@ export function Profile() {
         <Link href="https://github.com/shota-nagato" target="_blank">
           <Image alt="GitHub" height={30} src="/svg/github.svg" width={30} />
         </Link>
-        <Link href="#" target="_blank">
+        <Link href="https://nagato-tech.com/feed.xml" target="_blank">
           <Image alt="rss" height={30} src="/svg/rss.svg" width={30} />
         </Link>
       </div>
