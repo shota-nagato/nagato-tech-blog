@@ -1,1 +1,1 @@
-export const ARTICLES_LIMIT = 4
+export const ARTICLES_LIMIT = 8
