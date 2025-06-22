@@ -3,6 +3,8 @@ import { Pagination } from '@/components/articles/pagination'
 import { ARTICLES_LIMIT } from '@/libs/constants'
 import { getArticles } from '@/libs/microcms'
 
+export const revalidate = 0
+
 export default async function Home() {
   const { contents: articles, totalCount } = await getArticles({
     limit: ARTICLES_LIMIT,
