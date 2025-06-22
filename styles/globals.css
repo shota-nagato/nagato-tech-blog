@@ -36,3 +36,25 @@
     @apply text-sm;
   }
 }
+
+/* シンタックスハイライトのカスタムスタイル */
+@layer components {
+  .prose pre {
+    @apply bg-transparent p-0 m-0;
+  }
+
+  /* react-syntax-highlighterのスタイル調整 */
+  .prose pre[class*='language-'] {
+    @apply rounded rounded-tl-none shadow-sm border border-gray-200;
+  }
+
+  /* コードブロック内のテキスト選択を改善 */
+  .prose pre code {
+    @apply font-mono text-sm leading-relaxed;
+  }
+
+  /* ファイル名表示の余白を完全に削除 */
+  .prose .code-block-filename {
+    @apply text-sm;
+  }
+}
