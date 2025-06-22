@@ -1,4 +1,5 @@
 import TableOfContents from '@/components/articles/table-of-contents'
+import ArticleContent from '@/components/articles/article-content'
 import { getArticle, getArticles } from '@/libs/microcms'
 import { formatDate, renderToc } from '@/libs/utils'
 import Image from 'next/image'
@@ -133,10 +134,7 @@ export default async function Page(props: {
           </div>
 
           {/* 記事本文 */}
-          <div
-            className="prose mt-8"
-            dangerouslySetInnerHTML={{ __html: article.content }}
-          />
+          <ArticleContent content={article.content} />
 
           {/* シェア */}
           <div className="mt-[120px]">
