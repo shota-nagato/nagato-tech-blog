@@ -13,6 +13,23 @@ export default async function Page(props: {
     filters: `category[equals]${article.category.id}[and]id[not_equals]${article.id}`,
     limit: 6,
   })
+
+  // 前の記事と次の記事を取得
+  const { contents: prevArticles } = await getArticles({
+    filters: `publishedAt[less_than]${article.publishedAt}`,
+    orders: '-publishedAt',
+    limit: 1,
+  })
+
+  const { contents: nextArticles } = await getArticles({
+    filters: `publishedAt[greater_than]${article.publishedAt}`,
+    orders: 'publishedAt',
+    limit: 1,
+  })
+
+  const prevArticle = prevArticles.length > 0 ? prevArticles[0] : null
+  const nextArticle = nextArticles.length > 0 ? nextArticles[0] : null
+
   const toc = renderToc(article.content)
   const shareText = article.title + ' - NagatTech blog'
 
@@ -168,28 +185,60 @@ export default async function Page(props: {
       </div>
 
       <div className="mt-16 flex justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <Image
-            alt="前の記事"
-            height={15}
-            src="/svg/arrow-prev.svg"
-            width={15}
-          />
-          <div className="text-primary-black body">前の記事</div>
-        </Link>
+        {prevArticle ? (
+          <Link
+            href={`/article/${prevArticle.id}`}
+            className={`flex items-center gap-2`}
+          >
+            <Image
+              alt="前の記事"
+              height={15}
+              src="/svg/arrow-prev.svg"
+              width={15}
+            />
+            <div className="text-primary-black body">前の記事</div>
+          </Link>
+        ) : (
+          <div className="flex items-center gap-2 opacity-50">
+            <Image
+              alt="前の記事"
+              height={15}
+              src="/svg/arrow-prev.svg"
+              width={15}
+            />
+            <div className="text-primary-black body">前の記事</div>
+          </div>
+        )}
+
         <Link href="/" className="flex items-center gap-2">
           <Image alt="ホーム" height={15} src="/svg/home.svg" width={15} />
           <div className="text-primary-black body">ホーム</div>
         </Link>
-        <Link href="/" className="flex items-center gap-2">
-          <div className="text-primary-black body">次の記事</div>
-          <Image
-            alt="次の記事"
-            height={15}
-            src="/svg/arrow-next.svg"
-            width={15}
-          />
-        </Link>
+
+        {nextArticle ? (
+          <Link
+            href={`/article/${nextArticle.id}`}
+            className={`flex items-center gap-2`}
+          >
+            <div className="text-primary-black body">次の記事</div>
+            <Image
+              alt="次の記事"
+              height={15}
+              src="/svg/arrow-next.svg"
+              width={15}
+            />
+          </Link>
+        ) : (
+          <div className="flex items-center gap-2 opacity-50">
+            <div className="text-primary-black body">次の記事</div>
+            <Image
+              alt="次の記事"
+              height={15}
+              src="/svg/arrow-next.svg"
+              width={15}
+            />
+          </div>
+        )}
       </div>
 
       {/* 同じカテゴリの記事 */}
