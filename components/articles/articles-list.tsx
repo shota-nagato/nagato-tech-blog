@@ -17,7 +17,7 @@ export function ArticlesList(props: Props) {
     >
       {props.articles.map((article) => (
         <li key={article.id} className="rounded bg-white shadow">
-          <Link href="/articles/1">
+          <Link href={`/article/${article.id}`}>
             {article.eyecatch && (
               <Image
                 alt={article.title}
