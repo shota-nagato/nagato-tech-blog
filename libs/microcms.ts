@@ -77,3 +77,11 @@ export async function getArticles(queries?: MicroCMSQueries) {
   })
   return articles
 }
+
+export async function getArticle(articleId: string) {
+  const article = await microCMSClient.getListDetail<Article>({
+    endpoint: 'articles',
+    contentId: articleId,
+  })
+  return article
+}

@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@plugin '@tailwindcss/typography';
+
 @theme {
   --color-primary: #007697;
   --color-primary-foreground: #f8fafb;
@@ -14,9 +16,14 @@
 }
 
 @layer utilities {
+  .h1 {
+    @apply font-medium text-3xl;
+  }
+
   .h2 {
     @apply font-medium text-2xl;
   }
+
   .h3 {
     @apply font-medium text-xl;
   }
