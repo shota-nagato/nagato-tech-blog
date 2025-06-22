@@ -12,8 +12,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/third-parties": "^15.3.4",
     "@tailwindcss/typography": "^0.5.16",
-    "@types/cheerio": "^1.0.0",
     "@types/react-syntax-highlighter": "^15.5.13",
     "cheerio": "^1.1.0",
     "dayjs": "^1.11.13",
