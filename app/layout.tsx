@@ -7,6 +7,7 @@ import { Profile } from '@/components/layout/sidebar/profile'
 import { Categories } from '@/components/layout/sidebar/categories'
 import { Tags } from '@/components/layout/sidebar/tags'
 import { Noto_Sans_JP } from 'next/font/google'
+import { GoogleTagManager } from '@next/third-parties/google'
 
 const noto = Noto_Sans_JP({
   subsets: ['latin'],
@@ -35,6 +36,7 @@ export default function RootLayout({
           ${noto.className}
         `}
       >
+        <GoogleTagManager gtmId={process.env.GTM_ID ?? ''} />
         <Image
           alt="ファーストビュー画像"
           className="absolute h-[300px] w-full object-cover"
