@@ -8,6 +8,7 @@ import { Categories } from '@/components/layout/sidebar/categories'
 import { Tags } from '@/components/layout/sidebar/tags'
 import { Noto_Sans_JP } from 'next/font/google'
 import { GoogleTagManager } from '@next/third-parties/google'
+import { Search } from '@/components/layout/sidebar/search'
 
 const noto = Noto_Sans_JP({
   subsets: ['latin'],
@@ -65,6 +66,7 @@ export default function RootLayout({
               `}
             >
               <div className="flex flex-col gap-8">
+                <Search />
                 <Profile />
                 <Categories />
                 <Tags />
