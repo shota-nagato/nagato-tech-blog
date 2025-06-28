@@ -9,6 +9,7 @@ import { Tags } from '@/components/layout/sidebar/tags'
 import { Noto_Sans_JP } from 'next/font/google'
 import { GoogleTagManager } from '@next/third-parties/google'
 import { Search } from '@/components/layout/sidebar/search'
+import { Suspense } from 'react'
 
 const noto = Noto_Sans_JP({
   subsets: ['latin'],
@@ -66,7 +67,9 @@ export default function RootLayout({
               `}
             >
               <div className="flex flex-col gap-8">
-                <Search />
+                <Suspense fallback={<div>Loading...</div>}>
+                  <Search />
+                </Suspense>
                 <Profile />
                 <Categories />
                 <Tags />
