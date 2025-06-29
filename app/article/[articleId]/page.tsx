@@ -8,9 +8,11 @@ import { notFound } from 'next/navigation'
 
 export async function generateMetadata(props: {
   params: Promise<{ articleId: string }>
+  searchParams: Promise<{ dk?: string }>
 }) {
   const { articleId } = await props.params
-  const article = await getArticle(articleId)
+  const { dk } = await props.searchParams
+  const article = await getArticle(articleId, { draftKey: dk })
 
   if (!article) {
     notFound()
