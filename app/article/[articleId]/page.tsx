@@ -28,14 +28,24 @@ export async function generateMetadata(props: {
         },
       ],
     },
+    ...(dk && {
+      robots: {
+        index: false,
+        googleBot: {
+          index: false,
+        },
+      },
+    }),
   }
 }
 
 export default async function Page(props: {
   params: Promise<{ articleId: string }>
+  searchParams: Promise<{ dk?: string }>
 }) {
   const { articleId } = await props.params
-  const article = await getArticle(articleId)
+  const { dk } = await props.searchParams
+  const article = await getArticle(articleId, { draftKey: dk })
   const { contents: otherArticles } = await getArticles({
     filters: `category[equals]${article.category.id}[and]id[not_equals]${article.id}`,
     limit: 6,
