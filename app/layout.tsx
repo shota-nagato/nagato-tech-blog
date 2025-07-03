@@ -8,6 +8,7 @@ import { Categories } from '@/components/layout/sidebar/categories'
 import { Tags } from '@/components/layout/sidebar/tags'
 import { Noto_Sans_JP } from 'next/font/google'
 import { GoogleTagManager } from '@next/third-parties/google'
+import GoogleAdsense from '@/components/google-adsense'
 import { Search } from '@/components/layout/sidebar/search'
 import { Suspense } from 'react'
 
@@ -79,6 +80,7 @@ export default function RootLayout({
         </main>
         <Footer />
       </body>
+      <GoogleAdsense pId="7212472068496642" />
     </html>
   )
 }
