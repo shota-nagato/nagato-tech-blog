@@ -1,4 +1,5 @@
 import TableOfContents from '@/components/articles/table-of-contents'
+import StickyTableOfContents from '@/components/articles/sticky-table-of-contents'
 import ArticleContent from '@/components/articles/article-content'
 import { getArticle, getArticles } from '@/libs/microcms'
 import { formatDate, renderToc } from '@/libs/utils'
@@ -71,8 +72,8 @@ export default async function Page(props: {
   const shareText = article.title + ' - NagatTech blog'
 
   return (
-    <div>
-      <div className="rounded bg-white p-8">
+    <div className="relative">
+      <div className="relative rounded bg-white p-8">
         {/* パンくず */}
         <div className="flex items-center gap-4">
           <Link href="/">
@@ -163,15 +164,12 @@ export default async function Page(props: {
               </div>
             ))}
           </div>
-
           {/* 目次 */}
           <div className="mt-[40px]">
             <TableOfContents toc={toc} />
           </div>
-
           {/* 記事本文 */}
           <ArticleContent content={article.content} />
-
           {/* シェア */}
           <div className="mt-[120px]">
             <div className="text-center text-[#B2B7B7]">share on</div>
@@ -212,10 +210,12 @@ export default async function Page(props: {
                   width={30}
                 />
               </Link>
-              {/* <CopyButton url={`https://nagato-tech.com/article/${article.id}`} /> */}
             </div>
           </div>
         </div>
+
+        {/* スクロール追従目次 */}
+        <StickyTableOfContents toc={toc} />
       </div>
 
       <div className="mt-16 flex justify-between">
