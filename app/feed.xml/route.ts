@@ -5,7 +5,7 @@ import { getArticles } from '@/libs/microcms'
 export async function GET() {
   const { contents } = await getArticles()
 
-  const siteUrl = process.env.SITE_URL || 'http://localhost:3000'
+  const siteUrl = 'https://nagato-tech.com'
 
   const feedOptions = {
     title: 'NagatoTech blog',
