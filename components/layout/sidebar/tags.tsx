@@ -14,6 +14,10 @@ export async function Tags() {
     orders: 'publishedAt',
   })
 
+  const articleCounts = await Promise.all(
+    tags.map((tag) => getArticlesCount(tag.id)),
+  )
+
   return (
     <div>
       <div className="bg-primary flex items-center gap-4 rounded-t px-6 py-3">
@@ -41,7 +45,7 @@ export async function Tags() {
                 {tag.name}
               </Link>
               <span className="text-text-secondary-black">
-                ({getArticlesCount(tag.id)})
+                ({articleCounts[index]})
               </span>
             </div>
           </div>

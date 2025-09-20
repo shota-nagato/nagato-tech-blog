@@ -14,6 +14,10 @@ export async function Categories() {
     orders: 'publishedAt',
   })
 
+  const articleCounts = await Promise.all(
+    categories.map((category) => getArticlesCount(category.id)),
+  )
+
   return (
     <div>
       <div className="bg-primary flex items-center gap-4 rounded-t px-6 py-3">
@@ -42,7 +46,7 @@ export async function Categories() {
               {category.name}
             </Link>
             <span className="text-text-secondary-black">
-              ({getArticlesCount(category.id)})
+              ({articleCounts[index]})
             </span>
           </div>
         ))}

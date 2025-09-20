@@ -4,8 +4,8 @@ import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import Image from 'next/image'
 import { Profile } from '@/components/layout/sidebar/profile'
-import { Categories } from '@/components/layout/sidebar/categories'
-import { Tags } from '@/components/layout/sidebar/tags'
+// import { Categories } from '@/components/layout/sidebar/categories'
+// import { Tags } from '@/components/layout/sidebar/tags'
 import { Noto_Sans_JP } from 'next/font/google'
 import { GoogleTagManager } from '@next/third-parties/google'
 import GoogleAdsense from '@/components/google-adsense'
@@ -72,8 +72,8 @@ export default function RootLayout({
                   <Search />
                 </Suspense>
                 <Profile />
-                <Categories />
-                <Tags />
+                {/* <Categories /> */}
+                {/* <Tags /> */}
               </div>
             </div>
           </div>
