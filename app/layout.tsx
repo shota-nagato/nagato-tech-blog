@@ -72,8 +72,8 @@ export default function RootLayout({
                   <Search />
                 </Suspense>
                 <Profile />
-                <Categories />
-                <Tags />
+                {/* <Categories /> */}
+                {/* <Tags /> */}
               </div>
             </div>
           </div>
