@@ -33,7 +33,7 @@
     "@types/rss": "^0.0.32",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
-    "eslint-config-prettier": "^10.1.5",
+    "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-readable-tailwind": "^2.0.0",
     "prettier": "^3.6.2",
     "tailwindcss": "^4",
