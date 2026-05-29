@@ -20,10 +20,7 @@ export function Profile() {
 
       <div className="mt-5">
         <p className="body-sm text-primary-black">
-          <Link href="https://hab-co.jp/" target="_blank">
-            株式会社HAB&Co.
-          </Link>
-          ｜RailsとかNext.jsとか
+          RailsとかNext.jsとか
         </p>
       </div>
 
